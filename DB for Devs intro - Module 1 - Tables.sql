@@ -37,8 +37,8 @@ create table heap_example (
 ) organization heap;
 
 /*(2) Index: (IOT = Index-Organized Table) rows are soroted by primary key
-			Needs: primary key, index clause
-			Imposes physical order*/
+		• Needs: primary key, index clause
+		• Imposes physical order*/
 
 --e.g. note primary key placement adjacent data type
 
@@ -66,9 +66,9 @@ from   user_tables
 where  table_name = 'BRICKS_IOT';
 
 /*(3) External: for non-db files, such as CSVs
-	Needs: directory pointing to file location, external clause, directory/file name
-	Note: not supported in LiveSQL
-	Note: db must be able to access the file; cannot use external tables for local files*/
+	• Needs: directory pointing to file location, external clause, directory/file name
+	• Note: not supported in LiveSQL
+	• Note: db must be able to access the file; cannot use external tables for local files*/
 
 CHECK BACK HERE --e.g. check back to see if you need apostrophes for file path
 
@@ -84,7 +84,7 @@ create table ext_ex (
 );
 
 /*Temporary tables store session-specific data to store working data as global or private
-	Global: accessible by all db users but only your session can view inserted rows*/
+	• Global: accessible by all db users but only your session can view inserted rows*/
 
 --e.g. (note placement in creation clause)
 
@@ -92,9 +92,9 @@ create global temporary table temp_tabl (
 	temp_examp varchar2(100)
 );
 
-/*	Private: req 18c; visible only in your session
-		Need private clause and table prefix ora$ptt_
-		Rows disappear at end of transaction, but can change to session end with "on commit" clause*/
+/*Private: req 18c; visible only in your session
+	• Need private clause and table prefix ora$ptt_
+	• Rows disappear at end of transaction, but can change to session end with "on commit" clause*/
 
 --e.g. (note clause placement and prefix)
 
@@ -153,7 +153,7 @@ create table bricks_hash (
 ) partition by hash ( bricks_id ) partitions 8;
 
 /*Table clusters store rows from many table in the same physical location
-	Need to create cluster, place tables in cluster clause*/
+	• Need to create cluster, place tables in cluster clause*/
 
 create cluster example_cluster (
 	tabl_name varchar2(100)

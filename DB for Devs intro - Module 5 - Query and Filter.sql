@@ -41,9 +41,9 @@ where	colour in ('blue', 'red')
 and price >= 6 and price < 14.22;
 
 /*"Wildcard, b*tches!"
-	Underscore _ to match one character
-	Percent % to match zero or more
-	use 'like' condition in select clause*/
+	• Underscore _ to match one character
+	• Percent % to match zero or more
+	• use 'like' condition in select clause*/
 
 select	*
 from	example_table
@@ -68,8 +68,8 @@ from	toys
 where	toy_name like '%B%';
 
 /*Misc
-	must use 'is null' vs '= null'
-	use 'not' for negation*/
+	• must use 'is null' vs '= null'
+	• use 'not' for negation*/
 
 --e.g. Query (1) color != green, (2) price != 6	(checked, correct)
 

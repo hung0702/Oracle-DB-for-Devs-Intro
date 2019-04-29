@@ -2,19 +2,19 @@
 https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Data-Types.html#GUID-A3C0D836-BADB-44E5-A5D4-265BA5968483*/
 
 /*6 data types with varying precision
-decimal
-integer
-number
-float
-binary integer
-binary float*/
+• decimal
+• integer
+• number
+• float
+• binary integer
+• binary float*/
 
 number ( 'precision', 'scale' ); --omitting precision/scale will default to max available
 
 /*float is a subtype of number for floating-point numbers (unfixed number of digits pre-/post-decimal) 
-	binary_float or binary_double recommended instead
-	binary_float is 32-but single-precision, and binary_double is 64-bit double-precision
-		both allow you to store infinity and NaN (Not a Number)*/
+	• binary_float or binary_double recommended instead
+	• binary_float is 32-but single-precision, and binary_double is 64-bit double-precision
+		• both allow you to store infinity and NaN (Not a Number)*/
 
 /*ANSI number types: supported by Oracle db, e.g. integer or real map to number or float*/
 
@@ -30,9 +30,9 @@ create table numeric_data (
 );
 
 /*strings hold general text and unstructured data
-Primary data type is varchar2(data_length)	(<= 4KB in Oracle 11.2, <= ~32KB in 12.1)
-Use char for fixed length	(pads shorter text, <= 2KB)
-Use clob for wall of text	(4GB - 1)*(db block size), up to 32TB in Oracle*/
+• Primary data type is varchar2(data_length)	(<= 4KB in Oracle 11.2, <= ~32KB in 12.1)
+• Use char for fixed length	(pads shorter text, <= 2KB)
+• Use clob for wall of text	(4GB - 1)*(db block size), up to 32TB in Oracle*/
 
 create table character_data (
 	varchar_10_col   varchar2(10),
@@ -42,15 +42,15 @@ create table character_data (
 );
 
 /*date data type don't store timezone info; instead use timestamp for that
-	types: (1) date, (2) timestamp, (3) timestamp with time zone, (4) timestamp with local time zone
+	• types: (1) date, (2) timestamp, (3) timestamp with time zone, (4) timestamp with local time zone
 		(1) dates are granular to the second and must include a time (no calendar date-only type in Oracle), and have no time zone
-			e.g. date'2019-04-16' is the date for April 16, 2019 at midnight
-			e.g. to_date ( '2019-04-16 02:17 PM', 'YYYY-MM-DD HH:MI AM' ) is for when you need to specify time, remember the format mask!
+			• e.g. date'2019-04-16' is the date for April 16, 2019 at midnight
+			• e.g. to_date ( '2019-04-16 02:17 PM', 'YYYY-MM-DD HH:MI AM' ) is for when you need to specify time, remember the format mask!
 		(2) timestamps provide greater precision than dates, up to 9 digits of fractional seconds
-			e.g. to_timestamp ( '2019-04-16 02:17:00.123 PM', 'YYYY-MM-DD HH:MI:SS:FF PM' )
+			• e.g. to_timestamp ( '2019-04-16 02:17:00.123 PM', 'YYYY-MM-DD HH:MI:SS:FF PM' )
 		(3/4) timezones are stored in a column and handled by the db, such that quering returns the time value stored converted to the session time zone
-	Time intervals are durations of two types: years-to-month and day-to-second
-		Can add/subtract intervals from dates, timestamps, or same-type intervals*/
+	• Time intervals are durations of two types: years-to-month and day-to-second
+		• Can add/subtract intervals from dates, timestamps, or same-type intervals*/
 
 create table datetime_data (
   date_col                      date,
@@ -62,8 +62,8 @@ create table datetime_data (
 );
 
 /*Binary data types store data in the original format (e.g. graphics, sound, Word docs); raw and blob are the two key primary types
-	Raw: for smaller items, up to 2KB on 11.2 and ~32KB on 12.1
-	Blob: Binary Large OBject; max of (4GB - 1)*(db block size)*/
+	• Raw: for smaller items, up to 2KB on 11.2 and ~32KB on 12.1
+	• Blob: Binary Large OBject; max of (4GB - 1)*(db block size)*/
 
 create table binary_data (
 	raw_col  raw(1000),
@@ -71,7 +71,7 @@ create table binary_data (
 );
 
 /*Oracle tables have up to 1,000 columns, each with its own data type
-Query with terms like table_name, column_name, data_type, data_length, data_precision, data_scale*/
+• Query with terms like table_name, column_name, data_type, data_length, data_precision, data_scale*/
 
 create table example_table_with_three_columns (
 	character_column 	varchar2(100),
