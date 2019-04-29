@@ -77,3 +77,5 @@ select	toy_name
 from	toys
 where	colour 	!= 'green' 
 and		price 	!= 6;
+
+--Other stuff: can use between x and y, inclusive.
